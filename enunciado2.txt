@@ -1,0 +1,137 @@
+REQUISITOS GERAIS (PARA TODOS OS TEMAS)
+1. Criar 3 níveis de autenticação no sistema: User (pode aceder aos seus registos ou a
+registos consigo partilhados); UserManager (pode criar novos utilizadores, editar
+permissões na aplicação e visualizar todos os registos); Admin (pode realizar
+qualquer ação no sistema; criar/editar utilizadores (de todos os tipos), alterar
+permissões e visualizar todos os registos disponíveis no sistema). Quando a
+aplicação inicia pela primeira vez (ainda sem utilizadores), deverá automaticamente
+criar um único utilizador do tipo Admin com um nome de utilizador e password
+conhecidos.
+2. Todos os dados da aplicação deverão ser persistidos em ficheiro(s). Poderá utilizar
+ficheiros de texto (exemplo: formato CSV) ou em formato binário através da
+serialização de classes (ver interface Serializable).
+3. A aplicação deverá ter uma interface (com menus) que funciona através da linha de
+comandos. A aplicação deverá receber como argumento o(s) ficheiro(s) com os
+dados anteriormente gravados ou o nome de um novo ficheiro.
+4. Os dados introduzidos na aplicação devem der validados.
+5. Formatação dos números decimais: os números decimais apresentados nos
+relatórios deverão ser arredondados às centésimas com separadores de milhares
+(exemplo: 1.234,56).
+
+
+TEMA A
+Este projeto consiste no desenvolvimento de um sistema de rastreio de tarefas para os
+freelancers poderem anotar o trabalho por eles realizado diariamente, assim como
+cobrar o valor adequado aos seus clientes.
+1. Um utilizador pode criar uma conta. Para aceder ao sistema, o utilizador deverá
+efetuar login.
+2. O utilizador pode editar os dados da sua conta, nomeadamente o seu nome, dados
+de autenticação e número habitual de horas de trabalho diário.
+3. O utilizador poderá criar um projeto para agrupar tarefas. Um projeto tem um nome,
+nome do cliente e preço por hora. As informações sobre o projeto poderão ser
+alteradas. Os projetos podem ser removidos, tendo o utilizador a opção de apagar
+todas as tarefas associadas ou simplesmente desassociar as tarefas.
+4. Um utilizador pode iniciar uma tarefa indicando uma curta descrição e data/hora de
+início. Alternativamente, se não for indicada data e hora, considera-se que a tarefa 
+inicia no momento atual. As tarefas podem ter um projeto associado e um preço
+hora (por defeito, o preço hora desse projeto).
+5. Um utilizador pode terminar uma tarefa em determinada data e hora. Se não for
+indicada uma data e hora, considera-se o momento atual.
+6. Um utilizador pode remover tarefas em curso ou finalizadas.
+7. O utilizador pode listar todas as tarefas em curso, obtendo informação do tempo
+total despendido até ao momento.
+8. O utilizador pode listar todas as tarefas finalizadas entre duas datas.
+9. Um utilizador pode convidar outro utilizador para participar num projeto. O
+utilizador que é convidado para um projeto deverá aceitar o convite para poder
+introduzir tarefas nesse projeto.
+10. O utilizador criador do projeto pode remover utilizadores convidados dos seus
+projetos.
+11. Deverá ser possível visualizar (imprimir) um relatório pessoal para determinado mês,
+que deverá incluir lista de tarefas realizadas em cada dia (com indicação do projeto),
+número de horas total em cada dia e número de horas totais no mês. Caso alguma
+das tarefas tenha um preço hora associado, deverá ser indicado o preço total por dia
+e preço total do mês. As tarefas em curso não deverão ser incluídas no relatório. Os
+dias em que o utilizador excedeu o número habitual de horas diárias devem ser
+sinalizados no relatório.
+12. Deverá ser possível imprimir um relatório mensal semelhante ao descrito na linha
+acima, mas ao nível do projeto e ao nível do cliente, indicando adicionalmente todos
+os utilizadores que executaram as tarefas a cada dia.
+
+
+
+TEMA B
+Este projeto consiste no desenvolvimento de um sistema de rastreio dos ativos
+financeiros pessoais, tais como depósitos a prazo, imóveis arrendados, juros de
+produtos financeiros de risco (ações, fundos, etc.).
+1. Um utilizador pode criar uma conta. Para aceder ao sistema, o utilizador deverá
+efetuar login.
+2. O utilizador pode inserir, apagar e atualizar os seus ativos financeiros. Considere 3
+tipos de ativo financeiro: depósito a prazo, fundo de investimento e imóvel
+arrendado. Um ativo financeiro tem uma data de início e duração (em meses). Cada
+ativo tem uma percentagem de imposto (positiva, a indicar pelo utilizador) que afeta
+o lucro obtido por esse ativo.
+3. Um imóvel arrendado tem uma designação, localização (ou morada), valor do
+imóvel, valor da renda, valor mensal do condomínio, e valor anual estimado de
+outras despesas com o imóvel.
+4. Um depósito a prazo tem um valor, um banco, número de conta, titulares e taxa de
+juro anual. Considere que o juro é pago mensalmente, isto é, que o valor do depósito
+aumenta a cada mês.
+5. Um fundo de investimento tem um nome, montante investido e uma taxa de juro
+por defeito. Considere que pode atribuir uma taxa de juro específica a cada mês.
+6. Considere que a taxa de juro pode ser negativa e que os impostos só são devidos a
+cada ano em caso do ativo financeiro ter lucro.
+7. Permitir ao utilizador pesquisar por ativos financeiros através de nome e tipo. No
+caso dos fundos de investimento e depósitos, o utilizador poderá pesquisar por
+montante aplicado.
+8. O utilizador pode listar todos os ativos financeiros que estão ativos na data/hora
+atual, ordenados decrescentemente por valor inicialmente aplicado nesse ativo.
+9. O utilizador poderá obter um relatório que contém todos os ativos financeiros que
+estavam ativos entre 2 datas. O relatório deverá conter o lucro total (antes e depois
+de impostos) e o lucro mensal médio (antes e depois de impostos) para todos os
+ativos desse período.
+10. O utilizador poderá obter um relatório que lista todos os pagamentos de impostos e
+respetivo ativo (ao nível mensal) para os ativos financeiros disponíveis em
+determinado intervalo de tempo.
+11. Um administrador poderá obter um relatório com o valor total depositado em cada
+banco entre duas datas. Deverá indicar igualmente o custo total dos juros pagos
+nesse período por cada banco.
+
+
+
+TEMA C
+Este projeto consiste na implementação de uma plataforma de gestão de currículos de
+profissionais IT, nomeadamente developers, ux specialists, product managers e project
+managers.
+1. Um utilizador pode criar uma conta. Para aceder ao sistema, o utilizador deverá
+efetuar login.
+2. Um utilizador pode criar e editar skills (React, C++, TimeManagement, etc.),
+indicando um nome e selecionado a área profissional (developer, ux, ...). Uma skill
+só pode ser apagada se não estiver atualmente associada a nenhum profissional. As
+skills são partilhadas entre todos os utilizadores do sistema.
+3. Um utilizador pode criar um perfil de um talento indicando o nome, país, e-mail, e
+preço por hora. Os perfis podem ser públicos ou privados, isto é, visíveis ou não para
+todos os utilizadores do sistema.
+4. Um utilizador pode criar um cliente na plataforma ao qual pode apresentar
+determinado talento.
+5. Cada perfil de talento deverá ter várias skills, indicando o número de anos de
+experiência para cada skill.
+6. A cada perfil poderá ser adicionado detalhe de uma determinada experiência,
+indicando um título, nome da empresa, ano de começo e ano de término (opcional,
+caso o talento ainda trabalhe nessa empresa). Considere que não pode haver
+sobreposição de experiências no mesmo ano.
+7. Permitir pesquisar talentos por uma combinação de skills. Em caso de interface na
+linha de comandos, as skills deverão ser introduzidas num único comando separadas
+por virgula (ex.: “Java,Spring,JavaScript”, permitiria pesquisar por todos os talentos
+que tem as skills “Java”, “Spring” e “Javascript”. Os resultados desta pesquisa
+deverão ser ordenados por nome de talento.
+8. Um utilizador pode registar propostas de trabalho para os seus clientes. A proposta
+de trabalho deverá ter um nome, categoria de talento, skills necessárias, número
+mínimo de anos de experiência por skill e indicação do número total de horas e 
+descrição do trabalho. As propostas de trabalho podem ser atualizadas ou
+removidas.
+9. É possível listar, para uma proposta de trabalho, todos os talentos existentes no
+sistema que são elegíveis para essa proposta, ordenados por valor total.
+10. Permitir obter um relatório com preço médio mensal (considere um mês como 176
+horas) por categoria de talento e por país.
+11. Permitir obter um relatório com preço médio mensal (considere um mês como 176
+horas) por skill.
